@@ -12,3 +12,14 @@ ConfigWidget::~ConfigWidget()
 {
     delete ui;
 }
+
+void ConfigWidget::on_pushButton_3_clicked()
+{
+
+}
+
+void ConfigWidget::on_appendMessagePushButton_clicked()
+{
+   Q_EMIT messageSend(ui->lineEdit->text());
+}
+

@@ -22,7 +22,9 @@ void MessageWidget::paintEvent(QPaintEvent *event) {
         painter.setPen("#000000");
 
 //        // 设置字体和字体大小
-        QFont font = QFont("Robot", 13, QFont::ExtraLight); // 获取当前字体
+//        QFont font = QFont("Robot", 13, QFont::ExtraLight); // 获取当前字体
+        QFont font = QFont("Segoe UI Emoji", 14, QFont::Thin); // 获取当前字体
+
         painter.setFont(font); // 应用新的字体设置
 
         // 应用qss

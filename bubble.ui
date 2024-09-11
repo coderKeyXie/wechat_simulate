@@ -12,7 +12,7 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>435</width>
+    <width>0</width>
     <height>0</height>
    </size>
   </property>
@@ -85,6 +85,10 @@
           <height>35</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 5px;
+border: 1px solid red;</string>
+        </property>
         <property name="text">
          <string/>
         </property>
@@ -125,7 +129,7 @@
        <number>0</number>
       </property>
       <property name="topMargin">
-       <number>10</number>
+       <number>8</number>
       </property>
       <property name="rightMargin">
        <number>0</number>
@@ -249,7 +253,7 @@
        <number>0</number>
       </property>
       <property name="topMargin">
-       <number>10</number>
+       <number>2</number>
       </property>
       <property name="rightMargin">
        <number>0</number>

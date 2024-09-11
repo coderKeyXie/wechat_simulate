@@ -15,6 +15,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public Q_SLOTS:
+    void appendMessage(const QString &message ,bool isSelf = true);
+
 private:
     Ui::MainWindow *ui;
 };

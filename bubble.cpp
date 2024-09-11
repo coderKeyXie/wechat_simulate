@@ -31,6 +31,7 @@ void Bubble::setSelfSend(bool isSelf)
     ui->youHeadIcon->setVisible(!m_isSelf);
     ui->youTriangleWidget->setMySend(m_isSelf);
     ui->messageWidget->setSelfSend(m_isSelf);
+    ui->widget->layout()->setAlignment(ui->messageWidget, isSelf ? Qt::AlignRight : Qt::AlignLeft);
 }
 
 void Bubble::setMessage(const QString &message)

@@ -148,7 +148,7 @@ color:#000000;</string>
            <widget class="QLabel" name="label">
             <property name="font">
              <font>
-              <family>PingFang SC</family>
+              <family>Apple Color Emoji</family>
              </font>
             </property>
             <property name="styleSheet">
@@ -443,11 +443,19 @@ background-color: #df000000;</string>
      </widget>
     </item>
     <item>
-     <widget class="QWidget" name="configUi" native="true"/>
+     <widget class="ConfigWidget" name="configUi" native="true"/>
     </item>
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ConfigWidget</class>
+   <extends>QWidget</extends>
+   <header>configwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
