@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/button">
+        <file>resource/return.png</file>
+        <file>resource/add.png</file>
+        <file>resource/emoji.png</file>
+        <file>resource/microphone.png</file>
+    </qresource>
+</RCC>
