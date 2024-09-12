@@ -16,9 +16,6 @@ public:
     ~ConfigWidget();
 
 private slots:
-    void on_pushButton_3_clicked();
-
-    void on_appendMessagePushButton_clicked();
 
 Q_SIGNALS:
     void messageSend(const QString &message, bool isSelf = true);

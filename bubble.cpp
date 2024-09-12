@@ -9,9 +9,11 @@
 Bubble::Bubble(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Bubble)
+    , m_systemInfoTips(false)
 {
     ui->setupUi(this);
     setSelfSend(true);
+    connect(ui->messageWidget, &MessageWidget::onChangeSender, this, &Bubble::changeSender);
 }
 
 
@@ -23,11 +25,12 @@ Bubble::~Bubble()
 void Bubble::setSelfSend(bool isSelf)
 {
     m_isSelf = isSelf;
-    ui->myTriangleWidget->setVisible(m_isSelf);
     ui->mySendIcon->setVisible(m_isSelf);
     ui->myTriangleWidget->setMySend(m_isSelf);
-
-    ui->youTriangleWidget->setVisible(!m_isSelf);
+    if (!ui->messageWidget->isImage()) {
+        ui->myTriangleWidget->setVisible(m_isSelf);
+        ui->youTriangleWidget->setVisible(!m_isSelf);
+    }
     ui->youHeadIcon->setVisible(!m_isSelf);
     ui->youTriangleWidget->setMySend(m_isSelf);
     ui->messageWidget->setSelfSend(m_isSelf);
@@ -39,18 +42,44 @@ void Bubble::setMessage(const QString &message)
     ui->messageWidget->setMessage(message);
 }
 
-void Bubble::setIcon(const QString &iconPath)
+void Bubble::setImage(const QString &imagePath)
 {
-//    QPixmap icon = QPixmap(iconPath);
-//    ui->myHeadIcon->setPixmap(icon);
-    if (m_isSelf)
-        ui->myHeadIcon->setStyleSheet(QString("QLabel {"
-                         "border-image: url(%1) 35 35 35 35 stretch stretch;;"
-                         "border-radius: 5px;" // 设置圆角半径
-                         "}").arg(iconPath));
-    else
-        ui->youHeadIcon->setStyleSheet(QString("QLabel {"
-                         "border-image: url(%1) 35 35 35 35 stretch stretch;;"
-                         "border-radius: 5px;" // 设置圆角半径
-                         "}").arg(iconPath));
+    ui->messageWidget->setImage(imagePath);
+    ui->myTriangleWidget->setVisible(false);
+    ui->youTriangleWidget->setVisible(false);
 }
+
+void Bubble::setIcon(const QString &iconPath, bool isSelf)
+{
+    if (iconPath.isEmpty()) return;
+
+    if (isSelf) {
+        m_selfIconFile =  iconPath;
+
+        ui->myHeadIcon->setStyleSheet(QString("QPushButton {"
+                         "border-image: url(%1) 35 35 35 35 stretch stretch;;"
+                         "border-radius: 5px;}").arg(m_selfIconFile));
+   } else {
+        m_youIconFile = iconPath;
+        ui->youHeadIcon->setStyleSheet(QString("QPushButton {"
+                         "border-image: url(%1) 35 35 35 35 stretch stretch;;"
+                         "border-radius: 5px;}").arg(m_youIconFile));
+    }
+}
+
+void Bubble::on_youHeadIcon_clicked()
+{
+    onChangeIcon(false);
+}
+
+
+void Bubble::on_myHeadIcon_clicked()
+{
+    onChangeIcon(true);
+}
+
+void Bubble::changeSender()
+{
+    setSelfSend(!m_isSelf);
+}
+

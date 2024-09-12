@@ -9,6 +9,7 @@ static QString brankWechatColor = "#2c2c2c";
 static int messageLeftMargin = 10;
 static int messageTopMargin = 23;
 static int messageMaxWidth = 335;
+static int messageMaxHeight = 350; // 给图片数据使用的
 static int messageMinWidth = 20;
 static int messageMinHeight = 35;
 

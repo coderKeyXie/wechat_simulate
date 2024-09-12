@@ -4,5 +4,7 @@
         <file>resource/add.png</file>
         <file>resource/emoji.png</file>
         <file>resource/microphone.png</file>
+        <file>resource/image.png</file>
+        <file>resource/photograph.png</file>
     </qresource>
 </RCC>

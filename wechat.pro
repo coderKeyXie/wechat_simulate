@@ -11,22 +11,29 @@ CONFIG += c++11
 SOURCES += \
     bubble.cpp \
     configwidget.cpp \
+    functiontool.cpp \
+    iconbutton.cpp \
     main.cpp \
     mainwindow.cpp \
     messagewidget.cpp \
+    systemtips.cpp \
     trianglewidget.cpp
 
 HEADERS += \
     bubble.h \
     config.h \
     configwidget.h \
+    functiontool.h \
+    iconbutton.h \
     mainwindow.h \
     messagewidget.h \
+    systemtips.h \
     trianglewidget.h
 
 FORMS += \
     bubble.ui \
     configwidget.ui \
+    functiontool.ui \
     mainwindow.ui
 
 # Default rules for deployment.

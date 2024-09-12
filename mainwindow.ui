@@ -166,7 +166,7 @@ color:#000000;</string>
            </widget>
           </item>
           <item alignment="Qt::AlignTop">
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="morePushButton">
             <property name="minimumSize">
              <size>
               <width>35</width>
@@ -202,7 +202,8 @@ border:none;</string>
        <item>
         <widget class="QScrollArea" name="scrollArea">
          <property name="styleSheet">
-          <string notr="true">QScrollArea:vertical {
+          <string notr="true">
+QScrollArea:vertical {
     border: none;
     background: #f0f0f0;
     width: 2px;
@@ -239,8 +240,13 @@ QScrollArea::sub-line:vertical {
             <x>0</x>
             <y>0</y>
             <width>465</width>
-            <height>566</height>
+            <height>486</height>
            </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QWidget {	
+background-color: rgba(255, 255, 255, 0);
+}</string>
           </property>
           <layout class="QVBoxLayout" name="verticalLayout_2">
            <property name="leftMargin">
@@ -264,13 +270,7 @@ QScrollArea::sub-line:vertical {
          <property name="minimumSize">
           <size>
            <width>0</width>
-           <height>50</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>16777215</width>
-           <height>50</height>
+           <height>30</height>
           </size>
          </property>
          <property name="styleSheet">
@@ -278,60 +278,98 @@ QScrollArea::sub-line:vertical {
 border-top-color: rgb(241, 255, 240);
 </string>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <layout class="QVBoxLayout" name="verticalLayout">
           <property name="spacing">
-           <number>20</number>
+           <number>0</number>
           </property>
           <property name="leftMargin">
-           <number>15</number>
+           <number>0</number>
           </property>
           <property name="topMargin">
-           <number>10</number>
+           <number>0</number>
           </property>
           <property name="rightMargin">
-           <number>15</number>
+           <number>0</number>
           </property>
           <property name="bottomMargin">
-           <number>10</number>
+           <number>0</number>
           </property>
-          <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
-           <widget class="QPushButton" name="microphonePushButton">
+          <item>
+           <widget class="QWidget" name="editWidget" native="true">
             <property name="minimumSize">
              <size>
-              <width>25</width>
-              <height>25</height>
+              <width>0</width>
+              <height>50</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
-              <width>25</width>
-              <height>25</height>
+              <width>16777215</width>
+              <height>50</height>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">border-image: url(:/button/resource/microphone.png);</string>
+             <string notr="true"/>
             </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item alignment="Qt::AlignTop">
-           <widget class="QLineEdit" name="messageEdit">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="tabletTracking">
-             <bool>true</bool>
-            </property>
-            <property name="focusPolicy">
-             <enum>Qt::StrongFocus</enum>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QLineEdit{
+            <layout class="QHBoxLayout" name="horizontalLayout_2">
+             <property name="spacing">
+              <number>20</number>
+             </property>
+             <property name="leftMargin">
+              <number>15</number>
+             </property>
+             <property name="topMargin">
+              <number>10</number>
+             </property>
+             <property name="rightMargin">
+              <number>15</number>
+             </property>
+             <property name="bottomMargin">
+              <number>10</number>
+             </property>
+             <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
+              <widget class="QPushButton" name="microphonePushButton">
+               <property name="minimumSize">
+                <size>
+                 <width>25</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>25</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border-image: url(:/button/resource/microphone.png);</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignTop">
+              <widget class="QLineEdit" name="messageEdit">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Apple Color Emoji</family>
+                </font>
+               </property>
+               <property name="tabletTracking">
+                <bool>true</bool>
+               </property>
+               <property name="focusPolicy">
+                <enum>Qt::StrongFocus</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QLineEdit{
 border-radius: 5px;
 border: none;
 background-color: rgb(255, 255, 255);
@@ -341,50 +379,66 @@ color:#000000;
 QLineEdit:focus {
 	border:none;
 }</string>
-            </property>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignVCenter">
+              <widget class="QPushButton" name="emojiPushButton">
+               <property name="minimumSize">
+                <size>
+                 <width>25</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>25</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border-image: url(:/button/resource/emoji.png);</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item alignment="Qt::AlignVCenter">
+              <widget class="QPushButton" name="addPushButton">
+               <property name="minimumSize">
+                <size>
+                 <width>25</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>25</width>
+                 <height>25</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">border-image: url(:/button/resource/add.png);</string>
+               </property>
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </widget>
           </item>
-          <item alignment="Qt::AlignVCenter">
-           <widget class="QPushButton" name="emojiPushButton">
+          <item>
+           <widget class="FunctionTool" name="functonToolWidget" native="true">
             <property name="minimumSize">
              <size>
-              <width>25</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>25</width>
-              <height>25</height>
+              <width>0</width>
+              <height>80</height>
              </size>
             </property>
             <property name="styleSheet">
-             <string notr="true">border-image: url(:/button/resource/emoji.png);</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item alignment="Qt::AlignVCenter">
-           <widget class="QPushButton" name="addPushButton">
-            <property name="minimumSize">
-             <size>
-              <width>25</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>25</width>
-              <height>25</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">border-image: url(:/button/resource/add.png);</string>
-            </property>
-            <property name="text">
-             <string/>
+             <string notr="true"/>
             </property>
            </widget>
           </item>
@@ -453,6 +507,12 @@ background-color: #df000000;</string>
    <class>ConfigWidget</class>
    <extends>QWidget</extends>
    <header>configwidget.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>FunctionTool</class>
+   <extends>QWidget</extends>
+   <header>functiontool.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

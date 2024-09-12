@@ -72,7 +72,7 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QLabel" name="youHeadIcon">
+       <widget class="IconButton" name="youHeadIcon">
         <property name="minimumSize">
          <size>
           <width>35</width>
@@ -324,7 +324,7 @@ border: 1px solid red;</string>
        <number>0</number>
       </property>
       <item>
-       <widget class="QLabel" name="myHeadIcon">
+       <widget class="QPushButton" name="myHeadIcon">
         <property name="minimumSize">
          <size>
           <width>35</width>
@@ -343,6 +343,15 @@ border: 1px solid red;</string>
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>35</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="autoRepeat">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -389,6 +398,11 @@ border: 1px solid red;</string>
    <extends>QWidget</extends>
    <header>messagewidget.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>IconButton</class>
+   <extends>QPushButton</extends>
+   <header>iconbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources/>
