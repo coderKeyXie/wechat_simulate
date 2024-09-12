@@ -19,14 +19,17 @@ public:
     bool isImage() { return !m_pixmap.isNull();}
 protected:
     void mouseDoubleClickEvent(QMouseEvent *) override;
+    void mouseReleaseEvent(QMouseEvent *event) override;
 signals:
     void onChangeSender();
+    void onDeleteMessage();
 
 private:
     QString m_message;
     QPixmap m_pixmap;
     int m_height;
     bool m_selfSend;
+
 };
 
 #endif // MESSAGEWIDGET_H

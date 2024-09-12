@@ -18,11 +18,15 @@ public:
 Q_SIGNALS:
     void onAppendImage(const QString &imagePath);
     void onSettingBG(const QString &imagePath);
+    void onAppendSystemInfo(const QString &messgae);
+
 private slots:
 
     void on_photoPushButton_clicked();
 
     void on_backgroundSettingButton_clicked();
+
+    void on_systemInfoButton_clicked();
 
 private:
     Ui::FunctionTool *ui;

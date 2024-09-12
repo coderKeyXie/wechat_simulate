@@ -19,9 +19,10 @@ MessageWidget::MessageWidget(QWidget *parent)
 void MessageWidget::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing); // 开启抗锯齿
 
     // 处理图片类数据
-    if (m_message.isEmpty()) {
+    if (isImage()) {
         int scaled = 1;
         if (m_pixmap.width() > messageMaxWidth || m_pixmap.height() > messageMaxHeight) {
             scaled = qMax(m_pixmap.width() / messageMaxWidth, m_pixmap.height() / messageMaxHeight) * 2;
@@ -30,8 +31,11 @@ void MessageWidget::paintEvent(QPaintEvent *event)
         painter.drawPixmap(0, 0, m_pixmap.scaled(newSize, Qt::KeepAspectRatio, Qt::SmoothTransformation));
         setFixedSize(m_pixmap.size() / scaled);
         return;
-
+    } else if (!isMessage()) {
+        return;
     }
+
+    /********* 处理文本数据 *************/
 
     // 应用qss
     QStyleOption option;
@@ -39,7 +43,6 @@ void MessageWidget::paintEvent(QPaintEvent *event)
     style()->drawPrimitive(QStyle::PE_Widget, &option, &painter, this);
 
 
-    painter.setRenderHint(QPainter::Antialiasing); // 开启抗锯齿
     painter.setPen("#180d0d"); //设置字体颜色为黑色
 
     // 设置字体和字体大小
@@ -54,7 +57,6 @@ void MessageWidget::paintEvent(QPaintEvent *event)
 
     // 分割文本并绘制
     QStringList words = m_message.split(" ");
-
     QString line;
     for (const QString &word : words) {
         QStringList datas = cutLongStrings(word, &metrics);
@@ -74,7 +76,6 @@ void MessageWidget::paintEvent(QPaintEvent *event)
         painter.drawText(x, y, line);
     }
 
-    qInfo() << "111111";
     // 设置气泡大小
     if (m_height != y + 10) {
         m_height = y + 10;
@@ -122,6 +123,13 @@ void MessageWidget::setSelfSend(bool isSelf)
 void MessageWidget::mouseDoubleClickEvent(QMouseEvent *)
 {
     Q_EMIT onChangeSender();
+}
+
+void MessageWidget::mouseReleaseEvent(QMouseEvent *event)
+{
+    if (event->button() == Qt::RightButton) {
+       Q_EMIT onDeleteMessage();
+    }
 }
 
 

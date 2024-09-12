@@ -23,7 +23,7 @@ public:
 
 Q_SIGNALS:
     void onChangeIcon(bool isSelf);
-
+    void onDeleteBubble();
 private slots:
     void on_youHeadIcon_clicked();
 
@@ -35,7 +35,6 @@ private:
     bool m_isSelf;
     QString m_youIconFile;
     QString m_selfIconFile;
-    bool m_systemInfoTips; // 系统提示
 };
 
 #endif // BUBBLE_H

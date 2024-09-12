@@ -6,5 +6,6 @@
         <file>resource/microphone.png</file>
         <file>resource/image.png</file>
         <file>resource/photograph.png</file>
+        <file>resource/position.png</file>
     </qresource>
 </RCC>

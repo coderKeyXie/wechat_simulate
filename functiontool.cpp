@@ -44,3 +44,9 @@ void FunctionTool::on_backgroundSettingButton_clicked()
     Q_EMIT onSettingBG(fileName);
 }
 
+
+void FunctionTool::on_systemInfoButton_clicked()
+{
+    onAppendSystemInfo("12:50");
+}
+

@@ -9,11 +9,11 @@
 Bubble::Bubble(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Bubble)
-    , m_systemInfoTips(false)
 {
     ui->setupUi(this);
     setSelfSend(true);
     connect(ui->messageWidget, &MessageWidget::onChangeSender, this, &Bubble::changeSender);
+    connect(ui->messageWidget, &MessageWidget::onDeleteMessage, this, &Bubble::onDeleteBubble);
 }
 
 
