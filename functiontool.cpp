@@ -7,6 +7,7 @@ FunctionTool::FunctionTool(QWidget *parent) :
     ui(new Ui::FunctionTool)
 {
     ui->setupUi(this);
+    ui->dataEdit->setVisible(false);
 }
 
 FunctionTool::~FunctionTool()
@@ -26,6 +27,7 @@ void FunctionTool::on_photoPushButton_clicked()
     }
 
     Q_EMIT onAppendImage(fileName);
+    this->setVisible(false);
 }
 
 
@@ -42,11 +44,21 @@ void FunctionTool::on_backgroundSettingButton_clicked()
     }
 
     Q_EMIT onSettingBG(fileName);
+    this->setVisible(false);
 }
 
 
 void FunctionTool::on_systemInfoButton_clicked()
 {
-    onAppendSystemInfo("12:50");
+    ui->dataEdit->setVisible(true);
+    ui->dataEdit->setFocus();
+}
+
+void FunctionTool::on_dataEdit_returnPressed()
+{
+    Q_EMIT onAppendSystemInfo(ui->dataEdit->text());
+    ui->dataEdit->clear();
+    ui->dataEdit->setVisible(false);
+    this->setVisible(false);
 }
 

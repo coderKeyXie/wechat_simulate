@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,6 +16,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     messagewidget.cpp \
+    showthread.cpp \
     systemtips.cpp \
     trianglewidget.cpp
 
@@ -27,6 +28,7 @@ HEADERS += \
     iconbutton.h \
     mainwindow.h \
     messagewidget.h \
+    showthread.h \
     systemtips.h \
     trianglewidget.h
 

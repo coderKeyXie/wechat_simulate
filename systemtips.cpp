@@ -5,6 +5,7 @@
 
 SystemTips::SystemTips(QWidget *parent)
     : QWidget(parent)
+    , m_isDelete(false)
 {
     initUI();
 }
@@ -32,7 +33,10 @@ void SystemTips::setMessage(const QString &message)
 
 void SystemTips::mouseReleaseEvent(QMouseEvent *event)
 {
+    if (m_isDelete) return;
+
     if (event->button() == Qt::RightButton) {
+        m_isDelete = true;
         Q_EMIT onDeleteSystemTips();
     }
 }

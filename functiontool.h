@@ -28,6 +28,8 @@ private slots:
 
     void on_systemInfoButton_clicked();
 
+    void on_dataEdit_returnPressed();
+
 private:
     Ui::FunctionTool *ui;
 };

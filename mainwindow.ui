@@ -149,6 +149,7 @@ color:#000000;</string>
             <property name="font">
              <font>
               <family>Apple Color Emoji</family>
+              <pointsize>11</pointsize>
              </font>
             </property>
             <property name="styleSheet">

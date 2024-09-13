@@ -15,10 +15,19 @@ public:
     explicit ConfigWidget(QWidget *parent = nullptr);
     ~ConfigWidget();
 
-private slots:
+
+public Q_SLOTS:
+    void onPlaying(bool isPlaying);
+
 
 Q_SIGNALS:
-    void messageSend(const QString &message, bool isSelf = true);
+    void playMessage(int rate);
+    void stopMessage();
+
+private slots:
+    void on_playButton_clicked();
+
+
 private:
     Ui::ConfigWidget *ui;
     QString m_selfIcon;

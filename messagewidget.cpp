@@ -12,6 +12,7 @@ MessageWidget::MessageWidget(QWidget *parent)
     , m_height(0)
     , m_selfSend(true)
     , m_message("")
+    , m_isDelete(false)
 {
     this->setMaximumWidth(messageMaxWidth);
 }
@@ -30,6 +31,8 @@ void MessageWidget::paintEvent(QPaintEvent *event)
         QSize newSize = m_pixmap.size() / scaled;
         painter.drawPixmap(0, 0, m_pixmap.scaled(newSize, Qt::KeepAspectRatio, Qt::SmoothTransformation));
         setFixedSize(m_pixmap.size() / scaled);
+        Q_EMIT onHeightChange(m_pixmap.height() / scaled);
+
         return;
     } else if (!isMessage()) {
         return;
@@ -81,6 +84,7 @@ void MessageWidget::paintEvent(QPaintEvent *event)
         m_height = y + 10;
         int width = qMin(metrics.horizontalAdvance(m_message) + 2 * messageLeftMargin, messageMaxWidth);
         setFixedSize(qMax(width, messageMinWidth), qMax(m_height, messageMinHeight));
+        Q_EMIT onHeightChange(qMax(m_height, messageMinHeight));
     }
 }
 
@@ -127,8 +131,12 @@ void MessageWidget::mouseDoubleClickEvent(QMouseEvent *)
 
 void MessageWidget::mouseReleaseEvent(QMouseEvent *event)
 {
+    // 这里如果快速点击可能会产生崩溃，所以加个判断条件， 保证右键点击只能点击一次
+    if (m_isDelete) return;
+
     if (event->button() == Qt::RightButton) {
-       Q_EMIT onDeleteMessage();
+        m_isDelete = true;
+        Q_EMIT onDeleteMessage();
     }
 }
 

@@ -5,13 +5,16 @@
 #include <QFontMetrics>
 #include <QDebug>
 #include <QPixmap>
+#include <QRegularExpression>
 
 Bubble::Bubble(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Bubble)
+    , m_rate(10) // 默认每秒五个字
 {
     ui->setupUi(this);
     setSelfSend(true);
+    connect(ui->messageWidget, &MessageWidget::onHeightChange, this, [ = ](int height) {this->setFixedHeight(height);});
     connect(ui->messageWidget, &MessageWidget::onChangeSender, this, &Bubble::changeSender);
     connect(ui->messageWidget, &MessageWidget::onDeleteMessage, this, &Bubble::onDeleteBubble);
 }
@@ -65,6 +68,30 @@ void Bubble::setIcon(const QString &iconPath, bool isSelf)
                          "border-image: url(%1) 35 35 35 35 stretch stretch;;"
                          "border-radius: 5px;}").arg(m_youIconFile));
     }
+}
+
+int Bubble::messageShowTimer()
+{
+    // 图片1秒显示出来
+    if (ui->messageWidget->isImage()) return 1000;
+    const QString &text = ui->messageWidget->message();
+
+    // 计算中文字符数量
+   int chineseCharCount = text.count(QRegularExpression("[\u4e00-\u9fa5]"));
+
+   // 使用空格和标点符号分割字符串，计算英文单词数量
+   QStringList words = text.split(QRegExp("[\\s，。！？、]+"), QString::SkipEmptyParts);
+   int englishWordCount = 0;
+
+   // 统计英文单词
+   for (const QString &word : words) {
+       if (word.contains(QRegularExpression("[a-zA-Z]"))) {
+           englishWordCount++;
+       }
+   }
+
+   return (chineseCharCount + englishWordCount) * (1000 / m_rate);
+
 }
 
 void Bubble::on_youHeadIcon_clicked()

@@ -215,6 +215,27 @@ background-color: #ffffff;</string>
      </property>
     </widget>
    </item>
+   <item row="3" column="2" colspan="3">
+    <widget class="QLineEdit" name="dataEdit">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>20</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(9, 9, 9);
+border-radius: 5px;
+border: 1px;</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <resources>

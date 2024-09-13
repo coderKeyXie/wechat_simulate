@@ -17,6 +17,7 @@ signals:
     void onDeleteSystemTips();
 private:
     QLabel *m_label;
+    bool m_isDelete;
 };
 
 #endif // SYSTEMTIPS_H

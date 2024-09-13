@@ -9,6 +9,7 @@ QT_END_NAMESPACE
 
 class Bubble;
 class SystemTips;
+class ShowThread;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -32,10 +33,10 @@ public Q_SLOTS:
     void onAppendImage(const QString &imagePath);
     // 设置聊天背景
     void onSettingBackground(const QString &imagePath);
-
-
+    // 设置头像
     void onSettingHeadIcon(bool isSelf);
-
+    // 播放聊天过程
+    void onPlayMessage(int rate);
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event) override;
@@ -46,12 +47,15 @@ private slots:
     void on_messageEdit_returnPressed();
 
     void on_addPushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString m_youIconFile;
     QString m_selfIconFile;
-    QList<Bubble *> m_messages;
+    QList<Bubble *> m_bubbles;
     QList<SystemTips *> m_systemMessages;
+    QList<QWidget *> m_messages; // 全部显示的消息列表
     QTimer *m_scrolltoMax; // 滚动到最低下
+    ShowThread *m_showThread; // 定时显示滚动条
 };
 #endif // MAINWINDOW_H
