@@ -6,6 +6,7 @@ ConfigWidget::ConfigWidget(QWidget *parent) :
     ui(new Ui::ConfigWidget)
 {
     ui->setupUi(this);
+//    ui->acknowledgementsLabel->setVisible(false);
     connect(ui->stopButton, &QPushButton::clicked, this, &ConfigWidget::stopMessage);
 }
 

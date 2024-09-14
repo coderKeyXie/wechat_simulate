@@ -62,13 +62,6 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     bool isSelfSend = true;
-    for (int i = 0; i < 10 ; i++) {
-
-        isSelfSend = !isSelfSend;
-        if (isSelfSend)
-            onAppendMessage("一二三四五六七八九十十一十二十三十四十五十六This[破涕为笑]你好 is a long text that should automatically wrap to the next line when it reaches the edge of the QLabel. It demonstrates how QLabel can handle word wrapping.", true);
-        else onAppendMessage("n你好哈阿斯顿啊实打实的爱上多少啊多少啊的", false);
-    }
     ui->messageWidget->resize(this->width(), this->height());
 }
 
