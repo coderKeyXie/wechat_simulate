@@ -73,7 +73,7 @@ void Bubble::setIcon(const QString &iconPath, bool isSelf)
 int Bubble::messageShowTimer()
 {
     // 图片1秒显示出来
-    if (ui->messageWidget->isImage()) return 1000;
+    if (ui->messageWidget->isImage()) return 3000;
     const QString &text = ui->messageWidget->message();
 
     // 计算中文字符数量

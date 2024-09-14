@@ -12,7 +12,6 @@ ShowThread::ShowThread(const QList<QWidget *> &widges, QObject *parent)
 }
 
 void ShowThread::run() {
-    qInfo() << "1111111";
     m_isRun = true;
     // 模拟耗时操作
     for (QWidget *widget : m_widgets) {
@@ -33,7 +32,5 @@ void ShowThread::run() {
 
 void ShowThread::stop()
 {
-    qInfo() << "222222222";
-
     m_isRun = false;
 }

@@ -31,9 +31,10 @@ MainWindow::MainWindow(QWidget *parent)
     m_scrolltoMax->setInterval(100);
 
     m_showThread = new ShowThread(m_messages);
-
     ui->messageWidget->layout()->setAlignment(Qt::AlignTop);
-
+    titleNameShow(true);
+    ui->titleEdit->installEventFilter(this);
+    ui->titleLabel->installEventFilter(this);
     connect(m_showThread, &ShowThread::appendWidget, this , [ = ] (QWidget *widget) {
         widget->show();
         if (!m_scrolltoMax->isActive()) m_scrolltoMax->start();
@@ -200,8 +201,25 @@ void MainWindow::onPlayMessage(int rate)
     ui->configUi->onPlaying(true);
 }
 
+void MainWindow::titleNameShow(bool isVisible)
+{
+    ui->titleEdit->setVisible(!isVisible);
+    ui->titleLabel->setVisible(isVisible);
+    if(!isVisible) {
+        ui->titleEdit->setFocus();
+    }
+}
+
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
+    if (obj == ui->titleLabel && event->type() == QMouseEvent::MouseButtonDblClick) {
+        titleNameShow(false);
+        ui->titleEdit->setText(ui->titleLabel->text());
+    }
+    if (obj == ui->titleEdit && event->type() == QEvent::FocusOut) {
+        titleNameShow(true);
+        ui->titleLabel->setText(ui->titleEdit->text());
+    }
     return false;
 }
 
@@ -234,5 +252,12 @@ void MainWindow::onDeleteBubble()
     m_messages.removeOne(bubble);
     delete bubble;
     bubble = nullptr;
+}
+
+
+void MainWindow::on_titleEdit_returnPressed()
+{
+    titleNameShow(true);
+    ui->titleLabel->setText(ui->titleEdit->text());
 }
 

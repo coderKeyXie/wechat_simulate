@@ -37,7 +37,8 @@ public Q_SLOTS:
     void onSettingHeadIcon(bool isSelf);
     // 播放聊天过程
     void onPlayMessage(int rate);
-
+private:
+    void titleNameShow(bool isVisible);
 protected:
     bool eventFilter(QObject *obj, QEvent *event) override;
 
@@ -47,6 +48,8 @@ private slots:
     void on_messageEdit_returnPressed();
 
     void on_addPushButton_clicked();
+
+    void on_titleEdit_returnPressed();
 
 private:
     Ui::MainWindow *ui;
