@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>607</width>
-    <height>601</height>
+    <height>606</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -59,11 +59,19 @@
    </item>
    <item row="2" column="0" colspan="5">
     <widget class="QLabel" name="acknowledgementsLabel">
+     <property name="font">
+      <font>
+       <family>Apple Color Emoji</family>
+      </font>
+     </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;h2 align=&quot;center&quot; style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:x-large; font-weight:600;&quot;&gt;感谢精神股东 &lt;/span&gt;&lt;/h2&gt;&lt;p align=&quot;center&quot;&gt;夹子师弟&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;平安快乐&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;-&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;胖胖的勤勤&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;徐宏&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Kepler&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;4th&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;PatY&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;所以，你猜对了&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;Hrie&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;薇薇子🐰&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;飘飘&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;super&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;h2 align=&quot;center&quot; style=&quot; margin-top:16px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;感谢精神股东&lt;/span&gt;&lt;/h2&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;夹子师弟&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;平安快乐&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;-&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;胖胖的勤勤&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;徐宏&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Kepler&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;4th&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;PatY&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;所以，你猜对了&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Hrie&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;薇薇子🐰&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;飘飘&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;super&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Fourteenthousanddays&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;🌈(ง•̀_•́)ง&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>
+     </property>
+     <property name="margin">
+      <number>20</number>
      </property>
     </widget>
    </item>

@@ -60,7 +60,8 @@ MainWindow::MainWindow(QWidget *parent)
         if (!m_scrolltoMax->isActive()) m_scrolltoMax->start();
     });
 
-
+    onAppendSystemInfo("12:00");
+    onAppendSystemInfo("你已添加以千，现在可以开始聊天了。");
     bool isSelfSend = true;
     ui->messageWidget->resize(this->width(), this->height());
 }
